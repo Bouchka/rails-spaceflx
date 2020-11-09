@@ -30,17 +30,24 @@
   align-items: center;
 }
 
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
+.space-description{
+  width: 70%;
+  margin-top: 24px;
+  margin-right: 12px;
 }
 
-.card-product p {
-  font-size: 12px;
+.space-price-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  padding: 24px;
+  margin-top: 24px;
+  width: 60%;
+}
+
+.space-price-card p {
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -54,3 +61,8 @@
   background: #1EDD88;
   transition: background 0.3s ease;
 }
+
+
+
+
+

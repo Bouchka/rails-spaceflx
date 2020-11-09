@@ -27,24 +27,24 @@
   <h3><%= @space.area %></h3>
 </div>
 <div class="container">
-  <div class="space-info" class=flexbox>
-    <div class="container">
-      <div class="space-description">
-          <h3> Description </h3>
-          <p>Large conference room with a 200 capacity. Very convenient for large events.
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          </p>
-        <div class="owner-info">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" height=100px>
-          <h2> <%= @space.owner_id %> </h2>
+  <div class="space-info flexbox">
+    <div class="space-description">
+      <h3> Description </h3>
+      <p><%= @space.description %></p>
+      <div class="owner-info">
+        <div class="card-host">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+          <div class="card-host-content">
+            <p><small>Your host will be</small></p>
+            <p><%= @owner.email %></p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="space-price" class="card-product">
-      <p>Price</p>
+    <div class="space-price-card">
+      <p>Price : AED <%=@space.price_per_day%></p>
       <p>Start date</p>
       <p>End date</p>
-      <p>Capacity</p>
       <a class="btn btn-flat" href="#">Book</a>
     </div>
   </div>
