@@ -13,7 +13,7 @@ class SpacesController < ApplicationController
     @space.owner_id = current_user.id
 
     if @space.save
-      redirect_to @space
+      redirect_to host_dashboard_path
     else
       render :new
     end
