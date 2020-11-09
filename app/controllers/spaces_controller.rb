@@ -1,4 +1,5 @@
 class SpacesController < ApplicationController
+
   def index
     @spaces = Space.all
   end
@@ -19,6 +20,13 @@ class SpacesController < ApplicationController
   end
 
   def show
+    @space = Space.find(params[:id])
+    @owner = User.find(@space.owner_id)
+  end
+
+  private
+  def space_params
+    params.require(:space).permit(:name, :price, :start_date, :end_date, :capacity)
   end
 
   private
