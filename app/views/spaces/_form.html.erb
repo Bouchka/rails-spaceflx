@@ -1,4 +1,8 @@
 <%= simple_form_for @space do |f| %>
   <%= f.input :name %>
   <%= f.input :capacity %>
+  <%= f.input :area %>
+  <%= f.input :price_per_day %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
