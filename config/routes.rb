@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :spaces, only: :show
 
+  get '/dashboards/host', to: "dashboards#host", as: 'host_dashboard'
 end

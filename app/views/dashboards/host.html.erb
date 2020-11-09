@@ -1,0 +1,13 @@
+<h2>My spaces</h2>
+
+<ul>
+  <% @spaces.each do |space| %>
+   <%= space.name %>
+   <%= space.area %>
+   <%= space.price_per_day %>
+
+<!--   <%= link_to 'Edit', space, class: "btn btn-outline-success" %>
+  <%= link_to 'Delete', space, class: "btn btn-outline-success" %> -->
+
+  <% end %>
+</ul>
