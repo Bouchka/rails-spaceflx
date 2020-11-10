@@ -1,5 +1,7 @@
 class Space < ApplicationRecord
   has_one_attached :photo
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   has_many :bookings, dependent: :restrict_with_error
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
 
@@ -8,5 +10,7 @@ class Space < ApplicationRecord
   validates :description, presence: true
   validates :capacity, presence: true
   validates :price_per_day, presence: true
-  validates :area, inclusion: { in: Space::ZONES }
+  # validates :area, inclusion: { in: Space::ZONES }
+  validates :address, presence: true
+
 end

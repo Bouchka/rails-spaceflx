@@ -1,8 +1,10 @@
 <%= simple_form_for @space do |f| %>
   <%= f.input :name %>
-  <%= f.input :capacity %>
-  <%= f.input :area, collection: Space::ZONES %>
-  <%= f.input :price_per_day %>
+  <div class="form-row">
+    <%= f.input :capacity %>
+    <%= f.input :price_per_day %>
+  </div>
+  <%= f.input :address %>
   <%= f.input :description %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: 'btn btn-primary' %>
