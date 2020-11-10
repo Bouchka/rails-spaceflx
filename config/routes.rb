@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   get '/dashboards/host', to: "dashboards#host", as: 'host_dashboard'
+  get '/dashboards/user', to: "dashboards#user", as: 'user_dashboard'
 
 end
