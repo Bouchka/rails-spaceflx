@@ -6,6 +6,6 @@ class DashboardsController < ApplicationController
   end
 
   def user
-    @bookings = Booking.where(user_id: current_user.id)
+    @reservations = current_user.reservations
   end
 end
