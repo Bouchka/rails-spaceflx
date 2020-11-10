@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :spaces, only: [:index, :show, :new, :create]
   get '/dashboards/host', to: "dashboards#host", as: 'host_dashboard'
+  get '/dashboards/user', to: "dashboards#user", as: 'user_dashboard'
 
 end
