@@ -1,6 +1,7 @@
 class Space < ApplicationRecord
   has_one_attached :photo
   has_many :bookings, dependent: :restrict_with_error
+  belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
 
   ZONES = ['Jumeirah 1', 'DIFC', 'Dubai Marina', 'Dubai Knowledge Park', 'Downtown Dubai', 'Business Bay', 'The Palm Jumeirah']
   validates :name, presence: true
