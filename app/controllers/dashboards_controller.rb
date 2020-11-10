@@ -1,7 +1,8 @@
 class DashboardsController < ApplicationController
 
   def host
-    @spaces = Space.where(owner_id: current_user.id)
+    @spaces = current_user.spaces
+    @bookings = current_user.bookings
   end
 
   def user
