@@ -1,0 +1,54 @@
+<!-- <div class="container">
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <text> "Large conference room with a 200 capacity"</text>
+          <div class="container" class="row">
+              <div class="col-md-8" class="card" class="bg-white" style="width: 18rem;">
+                <img src="https://digital.ihg.com/is/image/ihg/crowne-plaza-dubai-4666197675-4x3?hei=480&fit=fit,1&qlt=85,0&resMode=sharp2&op_usm=1.75,0.9,2,0" alt="Space picture" width=420px>
+              </div>
+              <div class="col-md-4" class="card-body">
+                <h5 class="card-title">Price</h5>
+                <p class="card-text">Capacity</p>
+                <a href="#" class="btn btn-primary">Book</a>
+              </div>
+            <div>
+            <p>Host Picture</p>
+            <p>Host name</p>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+ -->
+
+<div class="space-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.theeggbrussels.com/wp-content/uploads/2017/04/007-14.png);">
+  <h1><%= @space.name %></h1>
+  <h3><%= @space.area %></h3>
+</div>
+<div class="container">
+  <div class="space-info flexbox">
+    <div class="space-description">
+      <h3> Description </h3>
+      <p><%= @space.description %></p>
+      <div class="owner-info">
+        <div class="card-host">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+          <div class="card-host-content">
+            <p><small>Your host will be</small></p>
+            <p><%= @owner.email %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="space-price-card">
+      <p>Price : AED <%=@space.price_per_day%></p>
+      <p>Start date</p>
+      <p>End date</p>
+      <a class="btn btn-flat" href="#">Book</a>
+    </div>
+  </div>
+  <%= link_to "Back to Spaceflx", root_path %>
+</div>
+
+
