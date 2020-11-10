@@ -37,8 +37,8 @@
           <div>
             <h2><%= booking.space.name %></h2>
             <p><%= booking.space.description %></p>
-            <p><%= booking.start_date %></p>
-            <p><%= booking.end_date %></p>
+            <p><%= booking.start_date.strftime('%B %e, %Y') %></p>
+            <p><%= booking.end_date.strftime('%B %e, %Y') %></p>
           </div>
           <h2 class="card-trip-pricing"><%= booking.price_per_day %></h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
