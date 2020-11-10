@@ -15,15 +15,16 @@ User.destroy_all
 puts "DB sweeped clean"
 
 puts "Creating Users..."
-10.times do
+5.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   user = User.new(
     first_name: first_name,
     last_name: last_name,
-    email: "#{first_name.downcase}@gmail.com"
+    email: "#{first_name.downcase}@gmail.com",
+    password: '123456'
     )
-  user.save
+  user.save!
   # Create spaces for this user
 
   puts "Creating spaces for #{user.first_name} #{user.last_name}..."
@@ -52,7 +53,7 @@ puts "Creating bookings..."
   space = Space.all.sample
   user = User.all.sample
   unless user.id == space.owner_id
-    start_date = rand(3.months).from_now
+    start_date = rand(90).days.from_now
     booking = Booking.new(
       start_date: start_date,
       end_date: start_date + rand(10).days,
