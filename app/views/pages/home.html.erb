@@ -13,7 +13,7 @@
       <h1> Your next private party starts here </h1>
       <p>Find the perfect space for your event</p>
 
-      <a class="btn-green" href="#"> Book a Space </a>
+      <a class="btn-green" href="#space-grid"> Book a Space </a>
       <%= link_to "Add a Space", new_space_path, class: "btn-green" %>
     </div>
   </div>
@@ -22,7 +22,7 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-centered mb-2">
     </div>
-    <div class="cards">
+    <div class="cards" id="space-grid">
       <% @spaces.each do |space| %>
       <%= link_to space_path(space) do %>
       <div class="card-trip">
@@ -34,7 +34,7 @@
           <h2><%= space.name %></h2>
           <p><%= space.description %></p>
         </div>
-          <h2 class="card-trip-pricing"><%= space.price_per_day %></h2>
+          <h2 class="card-trip-pricing">AED <%= space.price_per_day %></h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>
