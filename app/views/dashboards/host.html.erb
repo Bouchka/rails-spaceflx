@@ -20,7 +20,9 @@
             <% end %>
         <div class="card-trip-infos">
           <div>
+            <%= link_to space_path(space) do %>
             <h2><%= space.name %></h2>
+            <% end %>
             <p><%= space.description %></p>
           </div>
           <h2 class="card-trip-pricing">AED <%= space.price_per_day %></h2>
@@ -58,4 +60,3 @@
     </div>
 
 </div>
-
