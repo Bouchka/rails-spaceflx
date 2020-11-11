@@ -7,15 +7,17 @@
       </div>
       <div class="listing-list mt-3">
         <% @spaces.each do |space| %>
-          <div class="card-product my-3">
-            <% if space.photo.attached? %>
-              <%= cl_image_tag space.photo.key %>
-            <% end %>
-            <div class="card-product-infos">
-              <h2><%= space.name %></h2>
-              <p><%= space.address %></p>
+          <%= link_to space_path(space) do %>
+            <div class="card-product my-3">
+              <% if space.photo.attached? %>
+                <%= cl_image_tag space.photo.key %>
+              <% end %>
+              <div class="card-product-infos">
+                <h2><%= space.name %></h2>
+                <p><%= space.address %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
