@@ -12,9 +12,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
+         <li class="nav-username">
+          <span class="nav-link"><%= current_user.first_name %></span>
         <li class="nav-item">
           <%= link_to "All Spaces", spaces_path, class: "nav-link" %>
         </li>
