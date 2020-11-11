@@ -4,8 +4,13 @@
       <%= render 'shared/search_bar' %>
     </div>
     <div class="listing-titles mt-3">
-      <h6><%= "#{Space.count} spaces" %></h6>
-      <h2>Spaces</h2>
+      <h6><%= "#{@spaces.size} spaces" %></h6>
+      <h2>
+        Spaces
+        <% if @search_term.present? %>
+          <span>Near <%= @search_term.capitalize %></span>
+          <% end %>
+      </h2>
     </div>
     <div class="listing-list mt-3">
       <% @spaces.each do |space| %>

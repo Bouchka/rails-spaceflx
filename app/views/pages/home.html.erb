@@ -12,8 +12,10 @@
     <div class="container">
       <h1> Your next private party starts here </h1>
       <p>Find the perfect space for your event</p>
-
-      <%= link_to "Book a Sapce", spaces_path, class: 'btn-green' %>
+      <div class="search-bar mb-3">
+        <%= render 'shared/search_bar' %>
+      </div>
+      <%= link_to "Browse Spaces", spaces_path, class: 'btn-green' %>
       <%= link_to "Add a Space", new_space_path, class: "btn-green" %>
     </div>
   </div>

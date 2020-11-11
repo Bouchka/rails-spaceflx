@@ -2,6 +2,7 @@ class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   def index
     if params[:query].present?
+      @search_term = params[:query]
       @spaces = Space.near(params[:query], 100)
     else
       @spaces = Space.all
