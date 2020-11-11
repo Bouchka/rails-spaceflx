@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
 
   resources :spaces do
-    resources :bookings, only: [:create, :destroy]
+    resources :bookings, only: [:create]
   end
+  resources :bookings, only: [:destroy]
+
   get '/dashboards/host', to: "dashboards#host", as: 'host_dashboard'
   get '/dashboards/user', to: "dashboards#user", as: 'user_dashboard'
 
