@@ -1,5 +1,5 @@
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'BannerPicture.jpg' %>');">
-  <!-- code a Hero / Banner section -->
+    <!-- code a Hero / Banner section -->
     <div class="container">
       <h1> Your next private party starts here </h1>
       <p>Find the perfect space for your event</p>
@@ -21,22 +21,25 @@
       <%= link_to space_path(space) do %>
       <div class="card-trip">
         <% if space.photo.attached? %>
-          <%= cl_image_tag space.photo.key %>
+        <%= cl_image_tag space.photo.key %>
         <% end %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= space.name %></h2>
-          <p><%= space.description %></p>
-        </div>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= space.name %></h2>
+            <p><%= space.description %></p>
+          </div>
           <h2 class="card-trip-pricing">AED <%= space.price_per_day %></h2>
-           <% if space.owner.photo.attached? %>
-            <%= cl_image_tag space.owner.photo.key, class: "card-trip-user avatar-bordered" %>
-            <% else %>
+          <% if space.owner.photo.attached? %>
+          <%= cl_image_tag space.owner.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% else %>
           <%= image_tag 'missing-avatar.png', class: "card-trip-user avatar-bordered" %>
           <% end %>
         </div>
       </div>
       <% end %>
       <% end %>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <%= link_to "Browse All Spaces", spaces_path, class: 'btn-green' %>
     </div>
   </div>
