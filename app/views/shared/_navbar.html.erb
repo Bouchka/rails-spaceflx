@@ -28,6 +28,9 @@
         </li>
       <% else %>
         <li class="nav-item">
+          <%= link_to "All Spaces", spaces_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
