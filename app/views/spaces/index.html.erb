@@ -1,27 +1,28 @@
-
-  <div class="d-flex justify-content-between">
-    <div class="listings style="width: 50%;">
-      <div class="listing-titles mt-3">
-        <h6><%= "#{Space.count} spaces" %></h6>
-        <h2>Spaces</h2>
-      </div>
-      <div class="listing-list mt-3">
-        <% @spaces.each do |space| %>
-          <%= link_to space_path(space) do %>
-            <div class="card-product my-3">
-              <% if space.photo.attached? %>
-                <%= cl_image_tag space.photo.key %>
-              <% end %>
-              <div class="card-product-infos">
-                <h2><%= space.name %></h2>
-                <p><%= space.address %></p>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+<div class="d-flex justify-content-between">
+  <div class="listings style="width: 50%;">
+    <div class="search-bar">
+      <%= render 'shared/search_bar' %>
     </div>
-    <div id="map" class="fixed-top position-sticky" style="width: 50%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="listing-titles mt-3">
+      <h6><%= "#{Space.count} spaces" %></h6>
+      <h2>Spaces</h2>
+    </div>
+    <div class="listing-list mt-3">
+      <% @spaces.each do |space| %>
+        <%= link_to space_path(space) do %>
+          <div class="card-product my-3">
+            <% if space.photo.attached? %>
+              <%= cl_image_tag space.photo.key %>
+            <% end %>
+            <div class="card-product-infos">
+              <h2><%= space.name %></h2>
+              <p><%= space.address %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+  <div id="map" class="fixed-top position-sticky" style="width: 50%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
+</div>
