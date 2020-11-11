@@ -1,62 +1,12 @@
-<!-- <div class="container">
-  <div class="d-flex justify-content-between align-items-centered mb-2">
-  </div>
-    <div class="cards">
-      <div class="card-trip">
-        <% if @space.photo.attached? %>
-        <%= cl_image_tag @space.photo.key %>
-        <% end %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= @space.name %></h2>
-            <p><%= @space.description %></p>
-          </div>
-        </div>
-      </div>
-
-    <div class="space-price-card">
-      <div class="flat-show-card">
-        <h5>Book this place!</h5>
-
-        <form action="">
-
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">From:</span>
-            <input type="text" class="form-control" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-
-          <div class="input-group mt-2">
-            <span class="input-group-addon" id="basic-addon1">To:</span>
-            <input type="text" class="form-control" placeholder="18/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-
-          <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
-
-          <div class="owner-info">
-            <div class="card-host">
-              <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-              <div class="card-host-content">
-                <p><small>Your host will be</small></p>
-                <p><%= @owner.email %></p>
-              </div>
-            </div>
-          </div>
-
-        </form>
-      </div>
-    </div>
-</div>
-</div> -->
-<!-- </body></html> -->
-
 <% if @space.photo.attached? %>
-<div class="space-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @space.photo.key%>')">
+  <div class="space-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @space.photo.key%>')">
 <% else %>
-<div class="space-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+  <div class="space-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
 <% end %>
   <h1><%= @space.name %></h1>
   <h3><%= @space.address %></h3>
 </div>
+
 <div class="container">
   <div class="space-info flexbox">
     <div class="space-description">
@@ -67,14 +17,18 @@
           <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
           <div class="card-host-content">
             <p><small>Your host will be</small></p>
-            <p><%= @owner.email %></p>
+            <p><%= @space.owner.email %></p>
           </div>
         </div>
       </div>
     </div>
     <div class="space-price-card">
-      <p>Price : AED <%=@space.price_per_day%></p>
-      <%= render '/bookings/booking_widget', booking: @booking, space: @space %>
+        <%= render '/bookings/booking_widget', booking: @booking, space: @space %>
+          <div class="d-flex justify-content-between mt-3">
+            <p><strong>Price per day</strong></p>
+            <p>AED <%=@space.price_per_day%> </p>
+          </div>
+        </div>
     </div>
   </div>
 </div>

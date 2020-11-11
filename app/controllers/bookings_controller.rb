@@ -1,8 +1,7 @@
 class BookingsController < ApplicationController
-
   # def new
   #   @space = Space.find(params[:space_id])
-  #   @booking = Space.new
+  #   @booking = Booking.new
   # end
 
   def create
@@ -13,28 +12,27 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     # assign space_id, user_id and price_per_day to the booking
     @booking.space = @space
-    # TODO => how to ask user to login/sign up before booking
+    # assign booking user to current_user
     @booking.user = current_user
-    # TODO => how to make @booking.price_per_day a static?
+    # TODO how to make @booking.price_per_day a static?
     @booking.price_per_day = @space.price_per_day
-    # TODO => loop to check that the space is available
-    # at the dates entered in the form
-    # if available
-        # => post book
-        # => direct to bookings dashboard
-    # if not available
-        # => stay on same page
-        # => display message
-    #raise
+    # raise
     if @booking.save
       flash[:notice] = "Your booking is confirmed!"
-      redirect_to space_path(@space)
+      redirect_to space_booking_path(@space, @booking)
     else
-      flash[:notice] = "Dates not available :("
-      redirect_to space_path(@space)
+      flash[:notice] = "Please correct your date selection"
+      render 'spaces/show'
     end
   end
-
+  
+  def show
+    @booking = Booking.find(params[:id])
+    @space = Space.find(params[:space_id])
+    @days = (@booking.end_date.to_date - @booking.start_date.to_date).to_i
+    @total = @days * @booking.price_per_day
+  end
+   
   def destroy
     @booking = Booking.find(params[:space_id])
     @booking.destroy
@@ -45,5 +43,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
-
 end
