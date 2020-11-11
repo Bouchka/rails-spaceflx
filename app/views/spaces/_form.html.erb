@@ -4,7 +4,7 @@
     <%= f.input :capacity %>
     <%= f.input :price_per_day %>
   </div>
-  <%= f.input :address %>
+  <%= f.input :address, id: 'space_address' %>
   <%= f.input :description %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: 'btn btn-primary' %>
