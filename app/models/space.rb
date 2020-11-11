@@ -17,6 +17,9 @@ class Space < ApplicationRecord
 
   def update_coordinates
     result = Geocoder.search(self.address).first&.data
+
+    return if result.nil?
+
     self.latitude = result['lat']
     self.longitude = result['lon']
   end
