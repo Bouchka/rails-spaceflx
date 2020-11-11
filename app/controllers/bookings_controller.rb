@@ -21,8 +21,8 @@ class BookingsController < ApplicationController
       flash[:notice] = "Your booking is confirmed!"
       redirect_to space_booking_path(@space, @booking)
     else
-      flash[:notice] = "Selected dates are not available :("
-      redirect_to space_path(@space)
+      flash[:notice] = "Please correct your date selection"
+      render 'spaces/show'
     end
   end
 

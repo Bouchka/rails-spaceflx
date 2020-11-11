@@ -21,7 +21,6 @@ class SpacesController < ApplicationController
 
   def show
     @space = Space.find(params[:id])
-    @owner = User.find(@space.owner_id)
     @booking = Booking.new
   end
 
