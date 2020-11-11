@@ -15,6 +15,9 @@
             <%= link_to space_path(space), method: 'delete', class: 'delete_link' do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
+            <%= link_to edit_space_path(space), class: 'update_link' do %>
+              <i class="fas fa-pen"></i>
+            <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= space.name %></h2>

@@ -23,6 +23,16 @@
   }
 }
 
+.update_link {
+  position: absolute;
+  top: 6px;
+  font-size: 18px;
+  right: 45px;
+  i {
+    color: white;
+  }
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
