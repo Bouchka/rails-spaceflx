@@ -25,6 +25,12 @@ class SpacesController < ApplicationController
     @booking = Booking.new
   end
 
+  def destroy
+    @space = Space.find(params[:id])
+    @space.destroy
+    redirect_to host_dashboard_path
+  end
+
   private
   def space_params
     params.require(:space).permit(:name, :price, :start_date, :end_date, :capacity)

@@ -12,6 +12,9 @@
         <% if space.photo.attached? %>
           <%= cl_image_tag space.photo.key %>
         <% end %>
+            <%= link_to space_path(space), method: 'delete', class: 'delete_link' do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= space.name %></h2>
