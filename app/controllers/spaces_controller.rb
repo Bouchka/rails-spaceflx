@@ -36,6 +36,12 @@ class SpacesController < ApplicationController
   def show
     @space = Space.find(params[:id])
     @booking = Booking.new
+    @markers =
+    {
+      lat: @space.latitude,
+      long: @space.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { space: @space })
+    }
   end
 
   def destroy
