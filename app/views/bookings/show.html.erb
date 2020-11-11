@@ -11,7 +11,7 @@
         <p><%= @booking.space.area %></p>
         <p><%= @booking.start_date.strftime('%B %e, %Y') %></p>
         <p><%= @booking.end_date.strftime('%B %e, %Y') %></p>
-        <p><strong>Your host will be <%= @space.owner.email %></strong></p>
+        <p><strong><%= "Your host will be #{@space.owner.first_name} #{@space.owner.last_name}" %></strong></p>
       </div>
     </div>
   </div>

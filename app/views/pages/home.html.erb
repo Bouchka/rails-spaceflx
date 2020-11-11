@@ -28,7 +28,11 @@
           <p><%= space.description %></p>
         </div>
           <h2 class="card-trip-pricing">AED <%= space.price_per_day %></h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+           <% if space.owner.photo.attached? %>
+            <%= cl_image_tag space.owner.photo.key, class: "card-trip-user avatar-bordered" %>
+            <% else %>
+          <%= image_tag 'missing-avatar.png', class: "card-trip-user avatar-bordered" %>
+          <% end %>
         </div>
       </div>
       <% end %>
