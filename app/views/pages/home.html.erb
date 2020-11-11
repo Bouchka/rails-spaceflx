@@ -15,8 +15,17 @@
 
       <a class="btn-green" href="#space-grid"> Book a Space </a>
       <%= link_to "Add a Space", new_space_path, class: "btn-green" %>
+        <%= form_tag spaces_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a space"
+          %>
+        <%= submit_tag "Search", class: "btn-green" %>
+      <% end %>
     </div>
   </div>
+
 
   <!-- code a "How it works" section -->
   <div class="container">
