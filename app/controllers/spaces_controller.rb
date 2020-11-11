@@ -1,7 +1,12 @@
 class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   def index
-    @spaces = Space.all
+    if params[:query].present?
+      @search_term = params[:query]
+      @spaces = Space.near(params[:query], 100)
+    else
+      @spaces = Space.all
+    end
 
     # 'geocoded' scope filters only spaces with coordinates
     @markers = @spaces.geocoded.map do |space|
