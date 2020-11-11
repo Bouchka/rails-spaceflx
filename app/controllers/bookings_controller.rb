@@ -27,8 +27,10 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @reservation = Booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     @space = Space.find(params[:space_id])
+    @days = (@booking.end_date.to_date - @booking.start_date.to_date).to_i
+    @total = @days * @booking.price_per_day
   end
 
   private
