@@ -2,6 +2,14 @@ class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   def index
     @spaces = Space.all
+
+    # 'geocoded' scope filters only spaces with coordinates
+    @markers = @spaces.geocoded.map do |space|
+      {
+        lat: space.latitude,
+        long: space.longitude
+      }
+    end
   end
 
   def new
