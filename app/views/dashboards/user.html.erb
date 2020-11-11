@@ -8,6 +8,10 @@
       <% if reservation.space.photo.attached? %>
         <%= cl_image_tag reservation.space.photo.key %>
       <% end %>
+
+        <%= link_to booking_path(reservation), method: 'delete', class:'delete_link' do %>
+          <i class='far fa-trash-alt'></i>
+        <% end %>
       <div class="card-trip-infos">
         <div>
           <h2><%= reservation.space.name %></h2>
