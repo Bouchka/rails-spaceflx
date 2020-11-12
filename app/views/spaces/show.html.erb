@@ -14,10 +14,14 @@
       <p><%= @space.description %></p>
       <div class="owner-info">
         <div class="card-host">
-          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+          <% if @space.owner.photo.attached? %>
+          <%= cl_image_tag @space.owner.photo.key, class: "avatar-large" %>
+          <% else %>
+          <%= image_tag 'missing-avatar.png', class: "avatar-large" %>
+          <% end %>
           <div class="card-host-content">
             <p><small>Your host will be</small></p>
-            <p><%= @space.owner.email %></p>
+            <p><%= "#{@space.owner.first_name} #{@space.owner.last_name}" %></p>
           </div>
         </div>
       </div>
@@ -30,6 +34,7 @@
           </div>
         </div>
     </div>
+    <div id="map" class="fixed-top position-sticky" style="width: 50%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
 
