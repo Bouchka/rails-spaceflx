@@ -122,16 +122,20 @@
   background: white;
   padding: 8px 16px;
   border: 1px solid rgb(235,235,235);
+  width: 400px;
+  margin-top: 16px;
 }
 
 .card-host .card-host-content {
   flex-grow: 1;
   padding: 0 24px;
+  width: 400px;
 }
 
 .card-host p {
   margin: 0;
   line-height: 1.4;
+  width: 400px;
 }
 
 .card-category {
@@ -218,9 +222,6 @@
 }
 
 .space-info {
-  overflow: hidden;
-  width: 500px;
-  height: 500px;
 }
 
 .booking-wrapper {

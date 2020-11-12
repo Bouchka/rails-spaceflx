@@ -1,6 +1,6 @@
 <!-- <div class="d-flex justify-content-between"> -->
   <div class="row">
-    <div class="listings col-12 col-lg-8 col-xl-6">
+    <div class="listings col-12 col-lg-8 col-xl-7">
       <div class="search-bar">
         <%= render 'shared/search_bar' %>
       </div>
@@ -42,7 +42,7 @@
         <% end %>
       </div>
     </div>
-    <div class="map col-lg-4 col-xl-6">
+    <div class="map col-lg-4 col-xl-5">
       <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
