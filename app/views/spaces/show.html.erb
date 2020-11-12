@@ -13,7 +13,11 @@
         <% end %>
         <div class="owner-info">
         <div class="card-host">
-          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+          <% if @space.owner.photo.attached? %>
+            <img src='<%= cl_image_path @space.owner.photo.key %>' class="avatar-large" />
+          <% else %>
+            <%= image_tag 'missing-avatar.png', class: "card-product-user avatar-bordered" %>
+          <% end %>
           <div class="card-host-content">
             <p><small>Your host will be</small></p>
             <p><%= "#{@space.owner.first_name} #{@space.owner.last_name}" %></p>
