@@ -1,41 +1,57 @@
-<div class="container">
-  <div class="card-wrapper">
-    <div class="space-info">
-      <div class="place-title">
-        <h2><%= @space.name %></h2>
-        <p><%= @space.address %></p>
-        <h2 class="card-trip-pricing"> Capacity for <%= @space.capacity %> people</h2>
-      </div>
-      <div class="card-trip">
+<div class="container pt-4">
+  <div class="row">
+    <div class="space-info col-8">
+      <div class="place">
+          <h2><%= @space.name %></h2>
+          <p class="address"><i class="fas fa-map-marker-alt"></i> <%= @space.address %></p>
+          <p class="capacity"><i class="fas fa-users"></i> <%= @space.capacity %></p>
+          <p class="description"><%= @space.description %></p>
         <% if @space.photo.attached? %>
-          <img src="<%= cl_image_path @space.photo.key%>" />
+          <img src="<%= cl_image_path @space.photo.key%>" height="400px" />
         <% else %>
           <img src="" />
         <% end %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= @space.description %></h2>
+        <div class="owner-info">
+        <div class="card-host">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+          <div class="card-host-content">
+            <p><small>Your host will be</small></p>
+            <p><%= "#{@space.owner.first_name} #{@space.owner.last_name}" %></p>
           </div>
-          <p class="card-trip-pricing">Your host will be <%= "#{@space.owner.first_name} #{@space.owner.last_name}" %></p>
-          <% if @space.owner.photo.attached? %>
-          <img src="<%= cl_image_tag @space.owner.photo.key%>" />
-          <% else %>
-          <%= image_tag 'missing-avatar.png', class: "avatar-large" %>
-          <% end %>
         </div>
       </div>
+        </div>
     </div>
-    <div class="booking-wrapper">
-      <%= simple_form_for [@space, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <p><strong>Price per day</strong></p>
-        <p>AED <%=@space.price_per_day%> </p>
-        <%= f.button :submit, class: 'btn-green' %>
-      <% end %>
+    <div class="space-info col-4">
+          <!-- checkout -->
+          <div class="bg-white border p-3 sticky-top">
+            <div class="d-flex justify-content-between mt-3">
+              <%= simple_form_for [@space, @booking] do |f| %>
+                <%= f.input :start_date %>
+                <%= f.input :end_date %>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <p><strong>Price (per day)</strong> </p>
+              <p>AED <%= @space.price_per_day %></p>
+            </div>
 
+            <div class="d-flex justify-content-between mt-3 border-bottom">
+              <p><strong>Number of Days</strong> </p>
+              <p id="num-days">1</p>
+            </div>
 
+            <div class="d-flex justify-content-between mt-3">
+              <p><strong>Total</strong></p>
+              <p id="total-price"><strong><%= @space.price_per_day %></strong></p>
+            </div>
+                <%= f.button :submit, class: 'btn find-button w-100' %>
+              <% end %>
+            <!-- <a href="#" class="btn find-button w-100">Confirm Booking</a> -->
+
+          </div>
+          <!-- /checkout -->
     </div>
+
   </div>
 </div>
 
