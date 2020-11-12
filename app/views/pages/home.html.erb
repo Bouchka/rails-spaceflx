@@ -1,4 +1,4 @@
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'BannerPicture.jpg' %>');">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(20,20,20, 0) 0%, rgba(20,20,20, 0.6) 30%, rgba(20,20,20, 0.0) 90%), url('<%= image_path 'Banner 2.jpg' %>');">
     <!-- code a Hero / Banner section -->
     <div class="container">
       <h1> Your next private party starts here </h1>
@@ -15,7 +15,7 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-centered mb-2">
     </div>
-    <h2 style="margin: 20px">Join thousand of hosts on SpaceFlx  </h2>
+    <h2 class= "card_title mt-3" >Thousands of unforgetable locations for your events</h2>
     <div class="cards" id="space-grid">
       <% @spaces.each do |space| %>
       <%= link_to space_path(space) do %>

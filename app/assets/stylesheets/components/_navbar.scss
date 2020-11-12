@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #283618;
+  background: #2A9D8F;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,7 +8,12 @@
 }
 
 .navbar-brand {
-  font-family: "Ultra", "serif";
+  font-family: "Pacifico", "cursive";
+  font-size: 25px;
+  &:hover {
+    color: #264653 !important;
+  }
+
 }
 
 .navbar-light .navbar-brand {
@@ -16,7 +21,15 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: white;
+  color: white
+}
+
+.nav-link {
+  font-family: "Varela Round", "sans-serif";
+  &:hover {
+    color: #264653 !important;
+  }
+}
 
 }
 

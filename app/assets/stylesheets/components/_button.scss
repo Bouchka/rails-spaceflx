@@ -1,7 +1,34 @@
 .btn-green {
     display: inline-block;
-    background-color: #1EDD88;
+    background-color: #e76f51;
     padding: 16px 36px;
     border-radius: 50px;
     color: white;
+    font-size: 16px;
+    font-family: "Varela Round", "sans-serif";
+}
+
+.btn-login-signup {
+    display: inline-block;
+    background-color: #264653;
+    padding: 16px 36px;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    font-family: "Varela Round", "sans-serif";
+}
+
+.find-button {
+background-color: #2A9D8F;
+color: white;
+font-size: 15px;
+font-family: "Varela Round", "sans-serif";
+}
+
+.navbar-login-btn {
+background-color: #264653
+}
+
+.navbar-signup-btn {
+border-color: #264653;
 }
