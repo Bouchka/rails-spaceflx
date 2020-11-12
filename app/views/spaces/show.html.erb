@@ -1,40 +1,44 @@
-<% if @space.photo.attached? %>
-  <div class="space-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @space.photo.key%>')">
-<% else %>
-  <div class="space-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-<% end %>
-  <h1><%= @space.name %></h1>
-  <h3><%= @space.address %></h3>
-</div>
-
 <div class="container">
-  <div class="space-info flexbox">
-    <div class="space-description">
-      <h3> Description </h3>
-      <p><%= @space.description %></p>
-      <div class="owner-info">
-        <div class="card-host">
+  <div class="card-wrapper">
+    <div class="space-info">
+      <div class="place-title">
+        <h2><%= @space.name %></h2>
+        <p><%= @space.address %></p>
+        <h2 class="card-trip-pricing"> Capacity for <%= @space.capacity %> people</h2>
+      </div>
+      <div class="card-trip">
+        <% if @space.photo.attached? %>
+          <img src="<%= cl_image_path @space.photo.key%>" />
+        <% else %>
+          <img src="" />
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= @space.description %></h2>
+          </div>
+          <p class="card-trip-pricing">Your host will be <%= "#{@space.owner.first_name} #{@space.owner.last_name}" %></p>
           <% if @space.owner.photo.attached? %>
-          <%= cl_image_tag @space.owner.photo.key, class: "avatar-large" %>
+          <img src="<%= cl_image_tag @space.owner.photo.key%>" />
           <% else %>
           <%= image_tag 'missing-avatar.png', class: "avatar-large" %>
           <% end %>
-          <div class="card-host-content">
-            <p><small>Your host will be</small></p>
-            <p><%= "#{@space.owner.first_name} #{@space.owner.last_name}" %></p>
-          </div>
         </div>
       </div>
     </div>
-    <div class="space-price-card">
-        <%= render '/bookings/booking_widget', booking: @booking, space: @space %>
-          <div class="d-flex justify-content-between mt-3">
-            <p><strong>Price per day</strong></p>
-            <p>AED <%=@space.price_per_day%> </p>
-          </div>
-        </div>
+    <div class="booking-wrapper">
+      <%= simple_form_for [@space, @booking] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <p><strong>Price per day</strong></p>
+        <p>AED <%=@space.price_per_day%> </p>
+        <%= f.button :submit, class: 'btn-green' %>
+      <% end %>
+
+
     </div>
-    <div id="map" class="fixed-top position-sticky" style="width: 50%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
+
+
+<!--     <div id="map" class="fixed-top position-sticky" style="width: 50%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"> -->
 
