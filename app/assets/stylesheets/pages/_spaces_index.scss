@@ -3,7 +3,7 @@
   padding: 32px;
 }
 
-.listing .search-bar form {
+.listing .search-bar {
   width: 100%;
 }
 
@@ -41,4 +41,10 @@
 .listing-list .capacity {
  color: $medium_green;
  font-size: 0.8em;
+}
+
+#map {
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 54px);
 }
