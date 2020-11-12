@@ -47,6 +47,8 @@ class SpacesController < ApplicationController
   def destroy
     @space = Space.find(params[:id])
     @space.destroy
+
+    flash[:notice] = "Your space has been correclty deleted"
     redirect_to host_dashboard_path
   end
 
