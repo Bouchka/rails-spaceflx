@@ -1,33 +1,50 @@
-<div class="d-flex justify-content-between">
-  <div class="listings style="width: 50%;">
-    <div class="search-bar">
-      <%= render 'shared/search_bar' %>
-    </div>
-    <div class="listing-titles mt-3">
-      <h6><%= "#{@spaces.size} spaces" %></h6>
-      <h2>
-        Spaces
-        <% if @search_term.present? %>
-          <span>Near <%= @search_term.capitalize %></span>
-          <% end %>
-      </h2>
-    </div>
-    <div class="listing-list mt-3">
-      <% @spaces.each do |space| %>
-        <%= link_to space_path(space) do %>
-          <div class="card-product my-3">
-            <% if space.photo.attached? %>
-              <%= cl_image_tag space.photo.key %>
+<!-- <div class="d-flex justify-content-between"> -->
+  <div class="row">
+    <div class="listings col-12 col-lg-8 col-xl-6">
+      <div class="search-bar">
+        <%= render 'shared/search_bar' %>
+      </div>
+      <div class="listing-titles">
+        <h5><%= "#{@spaces.size} spaces" %></h5>
+        <h1>
+          Spaces
+          <% if @search_term.present? %>
+            <span>Near <%= @search_term.capitalize %></span>
             <% end %>
-            <div class="card-product-infos">
-              <h2><%= space.name %></h2>
-              <p><%= space.address %></p>
+        </h1>
+      </div>
+      <div class="listing-list">
+        <% @spaces.each do |space| %>
+          <%= link_to space_path(space) do %>
+            <div class="card-product my-3">
+              <% if space.photo.attached? %>
+                <%= cl_image_tag space.photo.key %>
+              <% end %>
+              <div class="card-product-infos">
+                <h2><%= space.name %></h2>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> <%= space.address %></p>
+                <p class="capacity"><i class="fas fa-users"></i> <%= space.capacity %></p>
+                <p class="description mb-2"><%= space.description %></p>
+                <div class="d-flex justify-content-between mt-3">
+                  <%= link_to space_path(space), class: 'card-action-button flex-grow-1' do %>
+                  <i class="far fa-calendar-plus"></i> Book this Space
+                  <% end %>
+                  <span class="card-price">AED <%= space.price_per_day %> /day</span>
+                </div>
+                <% if space.owner.photo.attached? %>
+                  <%= cl_image_tag space.owner.photo.key, class: "card-product-user avatar-bordered" %>
+                <% else %>
+                  <%= image_tag 'missing-avatar.png', class: "card-product-user avatar-bordered" %>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+    </div>
+    <div class="map col-lg-4 col-xl-6">
+      <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div id="map" class="fixed-top position-sticky" style="width: 50%; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-</div>
+<!-- </div> -->

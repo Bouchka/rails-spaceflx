@@ -1,2 +1,22 @@
-<h2><%= space.name %></h2>
+<!-- <h2><%= space.name %></h2>
 <p><%= space.address %></p>
+ -->
+       <%= link_to space_path(space) do %>
+      <div class="card-trip">
+        <% if space.photo.attached? %>
+        <%= cl_image_tag space.photo.key %>
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= space.name %></h2>
+            <p><%= space.address %></p>
+          </div>
+          <h2 class="card-trip-pricing">AED <%= space.price_per_day %></h2>
+          <% if space.owner.photo.attached? %>
+          <%= cl_image_tag space.owner.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% else %>
+          <%= image_tag 'missing-avatar.png', class: "card-trip-user avatar-bordered" %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
