@@ -25,9 +25,17 @@
                 <p class="address"><i class="fas fa-map-marker-alt"></i> <%= space.address %></p>
                 <p class="capacity"><i class="fas fa-users"></i> <%= space.capacity %></p>
                 <p class="description mb-2"><%= space.description %></p>
-                  <%= link_to space_path(space), class: 'card-action-button' do %>
+                <div class="d-flex justify-content-between mt-3">
+                  <%= link_to space_path(space), class: 'card-action-button flex-grow-1' do %>
                   <i class="far fa-calendar-plus"></i> Book this Space
                   <% end %>
+                  <span class="card-price">AED <%= space.price_per_day %> /day</span>
+                </div>
+                <% if space.owner.photo.attached? %>
+                  <%= cl_image_tag space.owner.photo.key, class: "card-product-user avatar-bordered" %>
+                <% else %>
+                  <%= image_tag 'missing-avatar.png', class: "card-product-user avatar-bordered" %>
+                <% end %>
               </div>
             </div>
           <% end %>
