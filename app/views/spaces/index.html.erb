@@ -3,16 +3,16 @@
     <div class="search-bar">
       <%= render 'shared/search_bar' %>
     </div>
-    <div class="listing-titles mt-3">
-      <h6><%= "#{@spaces.size} spaces" %></h6>
-      <h2>
+    <div class="listing-titles">
+      <h5><%= "#{@spaces.size} spaces" %></h5>
+      <h1>
         Spaces
         <% if @search_term.present? %>
           <span>Near <%= @search_term.capitalize %></span>
           <% end %>
-      </h2>
+      </h1>
     </div>
-    <div class="listing-list mt-3">
+    <div class="listing-list">
       <% @spaces.each do |space| %>
         <%= link_to space_path(space) do %>
           <div class="card-product my-3">
@@ -21,7 +21,12 @@
             <% end %>
             <div class="card-product-infos">
               <h2><%= space.name %></h2>
-              <p><%= space.address %></p>
+              <p class="address"><i class="fas fa-map-marker-alt"></i> <%= space.address %></p>
+              <p class="capacity"><i class="fas fa-users"></i> <%= space.capacity %></p>
+              <p class="description mb-2"><%= space.description %></p>
+                <%= link_to space_path(space), class: 'card-action-button' do %>
+                <i class="far fa-calendar-plus"></i> Book this Space
+                <% end %>
             </div>
           </div>
         <% end %>

@@ -1,13 +1,13 @@
 <%= form_tag spaces_path, method: :get do %>
 <div class="form-row align-items-center">
-  <div class="col-auto">
+  <div class="col-8">
     <%= text_field_tag :query,
       params[:query],
       class: 'form-control',
       id: 'space_address',
       placeholder: "Location" %>
   </div>
-  <div class="col-auto">
+  <div class="col-4">
     <%= submit_tag "Find spaces", class: 'btn btn-success' %>
   </div>
 </div>

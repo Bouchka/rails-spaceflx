@@ -145,16 +145,22 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.card-product:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 300px;
   object-fit: cover;
 }
 
@@ -174,4 +180,12 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product-infos .card-action-button {
+  color: #283618;
+}
+
+.card-product-infos .card-action-button:hover {
+  color: $medium_green;
 }
