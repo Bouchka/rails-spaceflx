@@ -1,3 +1,50 @@
 .listings {
   margin: 16px auto;
+  padding: 32px;
+}
+
+.listing .search-bar {
+  width: 100%;
+}
+
+.listing-titles {
+  margin-top: 22px;
+}
+
+.listing-list {
+  // margin: 16px 32px;
+}
+
+.listing-list a {
+  text-decoration: none;
+  color: black;
+}
+
+.listing-list a:hover {
+  text-docoration: none;
+  color: black;
+}
+
+.listing-list h2 {
+  font-size: 1.5em;
+}
+
+.listing-list .address {
+  font-size: 1em;
+  color: $dark_green;
+}
+
+.listing-list .description {
+  font-size: 1em;
+}
+
+.listing-list .capacity {
+ color: $medium_green;
+ font-size: 0.8em;
+}
+
+#map {
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 54px);
 }
